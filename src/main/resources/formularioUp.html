@@ -1,0 +1,26 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+	<div th:if="${mensage}">
+		<h2 th:text="${mensage}"/>
+	</div>
+
+	<div>
+		<form method="POST" enctype="multipart/form-data" action="http://localhost:8080/prueba/archivos">
+			<table>
+				<tr><td>Archivo a subir:</td><td><input type="file" name="archivo" /></td></tr>
+				<tr><td></td><td><input type="submit" value="Subir" /></td></tr>
+			</table>
+		</form>
+	</div>
+
+	<div>
+		<ul>
+			<li th:each="file : ${archivos}">
+				<a th:href="${archivo}" th:text="${archivo}" />
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>
